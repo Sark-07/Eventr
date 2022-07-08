@@ -1,3 +1,4 @@
 # Eventr
-Final year project
+**Final year project**
+
 In order to get started, install all the dependencies using "npm install"
