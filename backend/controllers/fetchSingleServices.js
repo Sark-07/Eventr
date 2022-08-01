@@ -63,13 +63,13 @@ const fetchMakeupAndStylistServices = async (req, res) => {
 }
 
 // fetch Decorator services
-const fetchDecorationAndLigntingServices = async (req, res) => {
+const fetchDecorationServices = async (req, res) => {
 
     try {
         const page = Number(req.query.page) || 1
         const limit = Number(req.query.limit) || 5
         const skip = (page - 1) * limit;
-        const [data] = await db.execute(`select * from single_services where type = 'Decoration & Lighting' limit ${limit} offset ${skip}`)
+        const [data] = await db.execute(`select * from single_services where type = 'Decoration' limit ${limit} offset ${skip}`)
         res.status(501).json(data)
 
     } catch (error) {
@@ -100,4 +100,22 @@ const fetchMusicAndDJServices = async (req, res) => {
 
 }
 
-module.exports = { fetchCateringServices, fetchMusicAndDJServices, fetchDecorationAndLigntingServices, fetchVideoPhotographyServices, fetchMakeupAndStylistServices }
+const fetchVenues = async (req, res) => {
+
+    try {
+        const page = Number(req.query.page) || 1
+        const limit = Number(req.query.limit) || 5
+        const skip = (page - 1) * limit;
+        const [data] = await db.execute(`select * from single_services where type = 'Venues' limit ${limit} offset ${skip}`)
+
+        res.status(501).json(data)
+
+    } catch (error) {
+
+        res.status(500).json(error);
+
+    }
+
+}
+
+module.exports = { fetchCateringServices, fetchMusicAndDJServices, fetchDecorationServices, fetchVideoPhotographyServices, fetchMakeupAndStylistServices, fetchVenues }

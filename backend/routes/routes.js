@@ -3,7 +3,7 @@ const router = express.Router();
 const { customerLogin, customerRegister, customerForgotPassword, customerResetPasswordGet, customerResetPasswordPost } = require('../controllers/customerAuth');
 const { merchantDashboard, merchantLogin, merchantRegister, merchantForgotPassword, merchantResetPasswordGet, merchantResetPasswordPost } = require('../controllers/merchantAuth');
 const { setUserSession: authenticated } = require('../controllers/userSessions')
-const { fetchCateringServices, fetchMusicAndDJServices, fetchDecorationAndLigntingServices, fetchVideoPhotographyServices, fetchMakeupAndStylistServices } = require('../controllers/fetchSingleServices')
+const { fetchCateringServices, fetchMusicAndDJServices, fetchDecorationServices, fetchVideoPhotographyServices, fetchMakeupAndStylistServices, fetchVenues } = require('../controllers/fetchSingleServices')
 
 
 
@@ -20,7 +20,8 @@ router.get('/services/catering', fetchCateringServices)
 router.get('/services/makeup-stylist', fetchMakeupAndStylistServices)
 router.get('/services/video-photograpy', fetchVideoPhotographyServices)
 router.get('/services/music-dj', fetchMusicAndDJServices)
-router.get('/services/decoration-lighting', fetchDecorationAndLigntingServices)
+router.get('/services/decoration-lighting', fetchDecorationServices)
+router.get('/services/venues', fetchVenues)
 
 
 
