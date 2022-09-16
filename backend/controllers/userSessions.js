@@ -9,8 +9,6 @@ const setUserSession = (req, res, next) => {
 
         res.redirect('/Eventr/api/v1/merchant/login');
     }
-
-
 }
 
 module.exports = { setUserSession }
